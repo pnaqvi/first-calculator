@@ -1,0 +1,470 @@
+/* ===== CSS Variables ===== */
+:root {
+    --navy-dark: #0a1628;
+    --navy-primary: #1a2744;
+    --navy-light: #2a3f5f;
+    --navy-lighter: #3d5a80;
+    --accent: #4a90d9;
+    --accent-hover: #5da3ec;
+    --text-primary: #ffffff;
+    --text-secondary: #a8b4c4;
+    --text-muted: #6b7a8f;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --border-radius: 12px;
+    --transition: all 0.2s ease;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ===== Header ===== */
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+/* ===== Tab Navigation ===== */
+.tabs {
+    display: flex;
+    gap: 8px;
+    background: var(--navy-light);
+    padding: 6px;
+    border-radius: var(--border-radius);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    background: var(--accent);
+    color: var(--text-primary);
+}
+
+/* ===== Calculator Sections ===== */
+.calculator-section {
+    display: none;
+}
+
+.calculator-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Calculator Base ===== */
+.calculator {
+    background: var(--navy-primary);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Display ===== */
+.display {
+    background: var(--navy-dark);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.display-expression {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    min-height: 24px;
+    word-break: break-all;
+}
+
+.display-result {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    word-break: break-all;
+    line-height: 1.2;
+}
+
+/* ===== Keypad ===== */
+.keypad {
+    display: grid;
+    gap: 10px;
+}
+
+.standard-keypad {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.scientific-keypad {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--navy-light);
+    color: var(--text-primary);
+}
+
+.btn:hover {
+    background: var(--navy-lighter);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-number {
+    background: var(--navy-light);
+}
+
+.btn-operator {
+    background: var(--navy-lighter);
+    color: var(--accent);
+}
+
+.btn-operator:hover {
+    background: var(--accent);
+    color: var(--text-primary);
+}
+
+.btn-function {
+    background: var(--navy-dark);
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.btn-function:hover {
+    background: var(--navy-light);
+    color: var(--text-primary);
+}
+
+.btn-equals {
+    background: var(--accent);
+    color: var(--text-primary);
+}
+
+.btn-equals:hover {
+    background: var(--accent-hover);
+}
+
+.btn-science {
+    background: var(--navy-dark);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    padding: 14px 8px;
+}
+
+.btn-science:hover {
+    background: var(--navy-light);
+    color: var(--text-primary);
+}
+
+/* ===== Scientific Calculator Specific ===== */
+.scientific-calc .display-result {
+    font-size: 2rem;
+}
+
+/* ===== Graphing Calculator ===== */
+.graphing-calc {
+    padding: 16px;
+}
+
+.graph-controls {
+    margin-bottom: 16px;
+}
+
+.function-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.function-input label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.function-input input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid var(--navy-light);
+    border-radius: 8px;
+    background: var(--navy-dark);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    outline: none;
+    transition: var(--transition);
+}
+
+.function-input input:focus {
+    border-color: var(--accent);
+}
+
+.function-input input::placeholder {
+    color: var(--text-muted);
+}
+
+.btn-plot {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: var(--accent);
+}
+
+.btn-plot:hover {
+    background: var(--accent-hover);
+}
+
+.graph-settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.range-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.range-input label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.range-input input {
+    width: 60px;
+    padding: 8px;
+    border: 2px solid var(--navy-light);
+    border-radius: 6px;
+    background: var(--navy-dark);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    text-align: center;
+    outline: none;
+    transition: var(--transition);
+}
+
+.range-input input:focus {
+    border-color: var(--accent);
+}
+
+.range-input span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.btn-clear-graph {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background: var(--navy-dark);
+    color: var(--text-secondary);
+    margin-left: auto;
+}
+
+/* ===== Graph Canvas ===== */
+.graph-container {
+    background: var(--navy-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+#graph-canvas {
+    width: 100%;
+    height: 350px;
+    display: block;
+}
+
+/* ===== Function List ===== */
+.function-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.function-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--navy-light);
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.function-item .color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.function-item .remove-fn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 2px 6px;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.function-item .remove-fn:hover {
+    color: var(--danger);
+    background: rgba(231, 76, 60, 0.1);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 500px) {
+    .container {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .tab-btn {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+
+    .calculator {
+        padding: 12px;
+    }
+
+    .display {
+        padding: 16px;
+        min-height: 80px;
+    }
+
+    .display-result {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+
+    .scientific-keypad {
+        gap: 6px;
+    }
+
+    .btn-science {
+        padding: 12px 4px;
+        font-size: 0.75rem;
+    }
+
+    .scientific-calc .display-result {
+        font-size: 1.6rem;
+    }
+
+    .function-input {
+        flex-wrap: wrap;
+    }
+
+    .function-input label {
+        width: 100%;
+    }
+
+    .function-input input {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .graph-settings {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-clear-graph {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #graph-canvas {
+        height: 280px;
+    }
+}
+
+@media (max-width: 360px) {
+    .standard-keypad {
+        gap: 6px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .display-result {
+        font-size: 1.8rem;
+    }
+}

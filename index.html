@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Suite</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculator Suite</h1>
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="standard">Standard</button>
+                <button class="tab-btn" data-tab="scientific">Scientific</button>
+                <button class="tab-btn" data-tab="graphing">Graphing</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Standard Calculator -->
+            <section id="standard" class="calculator-section active">
+                <div class="calculator standard-calc">
+                    <div class="display">
+                        <div class="display-expression" id="std-expression"></div>
+                        <div class="display-result" id="std-result">0</div>
+                    </div>
+                    <div class="keypad standard-keypad">
+                        <button class="btn btn-function" data-action="clear">C</button>
+                        <button class="btn btn-function" data-action="backspace">⌫</button>
+                        <button class="btn btn-function" data-action="percent">%</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="/">÷</button>
+
+                        <button class="btn btn-number" data-action="number" data-value="7">7</button>
+                        <button class="btn btn-number" data-action="number" data-value="8">8</button>
+                        <button class="btn btn-number" data-action="number" data-value="9">9</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="*">×</button>
+
+                        <button class="btn btn-number" data-action="number" data-value="4">4</button>
+                        <button class="btn btn-number" data-action="number" data-value="5">5</button>
+                        <button class="btn btn-number" data-action="number" data-value="6">6</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="-">−</button>
+
+                        <button class="btn btn-number" data-action="number" data-value="1">1</button>
+                        <button class="btn btn-number" data-action="number" data-value="2">2</button>
+                        <button class="btn btn-number" data-action="number" data-value="3">3</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="+">+</button>
+
+                        <button class="btn btn-number" data-action="negate">±</button>
+                        <button class="btn btn-number" data-action="number" data-value="0">0</button>
+                        <button class="btn btn-number" data-action="decimal">.</button>
+                        <button class="btn btn-equals" data-action="equals">=</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scientific Calculator -->
+            <section id="scientific" class="calculator-section">
+                <div class="calculator scientific-calc">
+                    <div class="display">
+                        <div class="display-expression" id="sci-expression"></div>
+                        <div class="display-result" id="sci-result">0</div>
+                    </div>
+                    <div class="keypad scientific-keypad">
+                        <!-- Row 1: Advanced functions -->
+                        <button class="btn btn-science" data-action="function" data-value="sin">sin</button>
+                        <button class="btn btn-science" data-action="function" data-value="cos">cos</button>
+                        <button class="btn btn-science" data-action="function" data-value="tan">tan</button>
+                        <button class="btn btn-science" data-action="function" data-value="log">log</button>
+                        <button class="btn btn-science" data-action="function" data-value="ln">ln</button>
+
+                        <!-- Row 2: More functions -->
+                        <button class="btn btn-science" data-action="function" data-value="asin">sin⁻¹</button>
+                        <button class="btn btn-science" data-action="function" data-value="acos">cos⁻¹</button>
+                        <button class="btn btn-science" data-action="function" data-value="atan">tan⁻¹</button>
+                        <button class="btn btn-science" data-action="function" data-value="sqrt">√</button>
+                        <button class="btn btn-science" data-action="operator" data-value="^">x^y</button>
+
+                        <!-- Row 3: Constants and parentheses -->
+                        <button class="btn btn-science" data-action="constant" data-value="pi">π</button>
+                        <button class="btn btn-science" data-action="constant" data-value="e">e</button>
+                        <button class="btn btn-science" data-action="parenthesis" data-value="(">(</button>
+                        <button class="btn btn-science" data-action="parenthesis" data-value=")">)</button>
+                        <button class="btn btn-function" data-action="clear">C</button>
+
+                        <!-- Row 4-7: Standard keys -->
+                        <button class="btn btn-number" data-action="number" data-value="7">7</button>
+                        <button class="btn btn-number" data-action="number" data-value="8">8</button>
+                        <button class="btn btn-number" data-action="number" data-value="9">9</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="/">÷</button>
+                        <button class="btn btn-function" data-action="backspace">⌫</button>
+
+                        <button class="btn btn-number" data-action="number" data-value="4">4</button>
+                        <button class="btn btn-number" data-action="number" data-value="5">5</button>
+                        <button class="btn btn-number" data-action="number" data-value="6">6</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="*">×</button>
+                        <button class="btn btn-science" data-action="function" data-value="square">x²</button>
+
+                        <button class="btn btn-number" data-action="number" data-value="1">1</button>
+                        <button class="btn btn-number" data-action="number" data-value="2">2</button>
+                        <button class="btn btn-number" data-action="number" data-value="3">3</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="-">−</button>
+                        <button class="btn btn-science" data-action="function" data-value="factorial">n!</button>
+
+                        <button class="btn btn-number" data-action="negate">±</button>
+                        <button class="btn btn-number" data-action="number" data-value="0">0</button>
+                        <button class="btn btn-number" data-action="decimal">.</button>
+                        <button class="btn btn-operator" data-action="operator" data-value="+">+</button>
+                        <button class="btn btn-equals" data-action="equals">=</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Graphing Calculator -->
+            <section id="graphing" class="calculator-section">
+                <div class="calculator graphing-calc">
+                    <div class="graph-controls">
+                        <div class="function-input">
+                            <label for="function-expr">f(x) =</label>
+                            <input type="text" id="function-expr" placeholder="e.g., sin(x), x^2, 2*x+1">
+                            <button class="btn btn-plot" id="plot-btn">Plot</button>
+                        </div>
+                        <div class="graph-settings">
+                            <div class="range-input">
+                                <label>X Range:</label>
+                                <input type="number" id="x-min" value="-10" step="1">
+                                <span>to</span>
+                                <input type="number" id="x-max" value="10" step="1">
+                            </div>
+                            <div class="range-input">
+                                <label>Y Range:</label>
+                                <input type="number" id="y-min" value="-10" step="1">
+                                <span>to</span>
+                                <input type="number" id="y-max" value="10" step="1">
+                            </div>
+                            <button class="btn btn-clear-graph" id="clear-graph">Clear</button>
+                        </div>
+                    </div>
+                    <div class="graph-container">
+                        <canvas id="graph-canvas"></canvas>
+                    </div>
+                    <div class="function-list" id="function-list"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/standard.js"></script>
+    <script src="js/scientific.js"></script>
+    <script src="js/graphing.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
